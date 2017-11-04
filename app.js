@@ -1,19 +1,36 @@
 /* The four rules for 'this';
 * in your own words. explain the four rules for the "this" keyword below.
-* 1. 
-* 2. 
-* 3. 
-* 4. 
+* 1. Not bound; simple function call. global object in non-strict mode;
+* undefined in strict mode.
+* 2. Implicit: called as a method on an object. this refers to the object the
+* function is called on.
+* 3. Explicit: Called with call or apply; this is bound to the first argument of
+* the call or apply functions.
+* 4. Using new on a contructor function. this is the object returned after
+* calling new.
 * write out a code example of each explanation above
 */
 
 // First Rule
 
+// hello();
+
 // Second Rule
+
+// obj1.method();
 
 // Third Rule
 
+// method1.call(obj1)
+// method1.apply(obj1)
+
 // Fourth Rule * you may want to use your third rule's example to accomplish this
+//
+// function MyObject() {
+//
+// }
+//
+// let obj1 = new MyObject();
 
 // explain closure 
 
@@ -76,6 +93,14 @@ while(n >= 1) {
 // write a function called countDown that does the exact same thing as above, but calls itself until it can't anymore.
   // hint-> your base case will look like the logic in the while loop.
 
+function countDown(n) {
+  if (n <= 1) {
+    console.log(n);
+    return
+  }
 
+  console.log(n);
+  return countDown(n - 1);
+}
 
-
+countDown(10);
