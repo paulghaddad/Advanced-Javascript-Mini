@@ -32,14 +32,19 @@
 //
 // let obj1 = new MyObject();
 
-// explain closure 
+// explain closure:
+// A closure is a function that remembers it's lexical environment at the time of its creation.
 
 function foo () {
-  console.log(this); // what does this point to?
+  console.log(this); // what does this point to? It depends on how the function is invoked.
 };
 
 const counterFunction = () => {
   // this code is broken. figure out why, and tell us where the closure is when you fix it
+  // the count variable is the closure as it's remembered in future function
+  // invocations on the counter variable.
+  let count = 0;
+
   const changeCount = (value) => {
     count += value;
   };
