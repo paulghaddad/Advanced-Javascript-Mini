@@ -75,15 +75,42 @@ console.log(counter.total());
   // assign these properties you pass in with options to the constructors 'this' object.
   // add a speak() method to your object that when called will log out the car's make model and year.
 
+function Car({make, model, year}) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+Car.prototype.speak = function() {
+  return `${this.year} ${this.model}`;
+};
+
 // when you're done un comment the next few lines and run the file here in node `node app.js`.
 
-// const herby = new Car({make: 'Volkswagen', model: 'Beetle', year: '1963'});
-// console.log(herby.speak());
-// const goldfinger = new Car({make: 'Aston Martin', model: 'DB5', year: '1964'});
-// console.log(goldfinger.speak());
+const herby = new Car({make: 'Volkswagen', model: 'Beetle', year: '1963'});
+console.log(herby.speak());
+const goldfinger = new Car({make: 'Aston Martin', model: 'DB5', year: '1964'});
+console.log(goldfinger.speak());
 
 
 // once you get done with this, redo it all using the class keyword and a constructor function. 
+
+class NewCar {
+  constructor({make, model, year}) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  speak() {
+    return `${this.year} ${this.model}`;
+  }
+}
+
+const toyota = new NewCar({make: 'Toyota', model: 'Camry', year: '2000'});
+console.log(toyota.speak());
+const ford = new NewCar({make: 'Ford', model: 'Taurus', year: '1995'});
+console.log(ford.speak());
 
 // extra credit
 
